@@ -1,0 +1,83 @@
+{% extends "PublicBundle::base.html.twig" %}
+
+{# Description #}
+{% block description %} Go Mobility, un super site {% endblock %}
+
+{# title #}
+{% block title %} Accueil {% endblock %}
+
+
+
+{# body #}
+{% block body %} 
+<section id="participe" class="global-content two-third left">
+	
+	<h2>Je participe</h2>
+
+	{% for notice in app.session.flashbag.get('notice') %}
+        <p class="notice">{{ notice }}</p>
+    {% endfor %}
+	
+
+	<form method="post" novalidate>
+		<p>
+			{{ form_label(form.email, 'Votre email :') }}
+			{{ form_widget(form.email) }}
+			{{ form_errors(form.email) }}
+		</p>
+
+		<p>
+			{{ form_label(form.title, 'Titre de l\'expérience :') }}
+			{{ form_widget(form.title) }}
+			{{ form_errors(form.title) }}
+		</p>
+
+		<p>
+			{{ form_label(form.type, 'Type de transport :') }}
+			{{ form_widget(form.type) }}
+		</p>
+
+		<div class="two-column left">
+		    {{ form_label(form.start, 'Adresse de départ :') }}
+			{{ form_widget(form.start) }}
+			{{ form_errors(form.start) }}
+		</div>
+
+		<div class="two-column right">
+		    {{ form_label(form.arrival, 'Adresse d\'arrivée :') }}
+			{{ form_widget(form.arrival) }}
+			{{ form_errors(form.arrival) }}
+		</div>
+			
+		<div class="ghost"></div>
+		<!-- <div id="ges">
+			<button>Bilan Carbone</button>
+			<p>Distance parcouru: <span></span></p>
+			<p>Bilan carbone: <span></span></p>
+		</div> -->
+		<p>
+			{{ form_label(form.description, 'Description du parcours :') }}
+			{{ form_widget(form.description) }}
+			{{ form_errors(form.description) }}
+		</p>
+		{{ form_widget(form.ges) }}
+		<p>
+			{{ form_widget(form.game) }}
+			{{ form_label(form.game, 'Je souhaite participer au jeu concours.') }}
+		</p>
+
+		<input type="submit" value="valider" class="right bg-blue-light white transition">
+        {{ form_widget(form._token) }}
+
+		
+		<div class="ghost"></div>
+	</form>
+
+</section> <!-- .global-content -->
+{% endblock %}
+
+{# javascripts #}
+{% block javascripts %}
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+	<script src="{{ asset('bundles/public/js/map.js') }}"></script>
+{% endblock %}

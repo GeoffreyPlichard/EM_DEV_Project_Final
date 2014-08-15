@@ -1,0 +1,101 @@
+<?php
+
+namespace Mobility\PublicBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+// Importation de la classe qui gère les contraintes de validation
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * EcoActors
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Mobility\PublicBundle\Entity\EcoActorsRepository")
+ */
+class EcoActors
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez renseigner votre adresse email.")
+     * @Assert\Email(message="Votre email n'est pas valide.")
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez renseigner un titre.")
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255)
+     * @Assert\NotNull(message="Veuillez rentrer selectionner un type de transport.")
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="start", type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez renseigner une adresse de départ.")
+     */
+    private $start;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="arrival", type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez renseigner une adresse de destination.")
+     */
+    private $arrival;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
+     * @Assert\NotBlank(message="Veuillez rentrer une description.")
+     * @Assert\Length(
+	 *	min=10,
+	 *  max=500,
+	 *  minMessage="Votre description doit comporter au moins {{ limit }} caractères.",
+	 *  maxMessage="Votre description doit comporter {{ limit }} maximum.",
+     * )
+     */
+    private $description;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="game", type="boolean")
+     */
+    private $game;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ges", type="integer")
+     */
+    private $ges;
+
+
+
+ 
+
+    
+}

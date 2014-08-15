@@ -1,0 +1,71 @@
+{% extends "PublicBundle::base.html.twig" %}
+
+{# Description #}
+{% block description %} Go Mobility, un super site {% endblock %}
+
+{# title #}
+{% block title %} Accueil {% endblock %}
+
+
+
+{# body #}
+{% block body %}
+<section class="global-content two-third left">
+	
+	<article>
+		<h2><a href="{{ url('public.frontpages.experience') }}" title="Titre expérience">Titre expérience</a></h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis cum molestiae officia quasi consequatur ad mollitia tempore omnis aliquid eaque fugiat fuga, corrupti voluptatum nulla harum distinctio inventore, accusamus nisi.</p>
+		<a href="{{ url('public.frontpages.experience') }}" class="read-more transition">Lire la suite</a>
+		<div class="ghost"></div>
+	</article>
+	<article>
+		<h2><a href="{{ url('public.frontpages.experience') }}" title="Titre expérience">Titre expérience</a></h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis cum molestiae officia quasi consequatur ad mollitia tempore omnis aliquid eaque fugiat fuga, corrupti voluptatum nulla harum distinctio inventore, accusamus nisi.</p>
+		<a href="{{ url('public.frontpages.experience') }}" class="read-more transition">Lire la suite</a>
+		<div class="ghost"></div>
+	</article>
+	<article>
+		<h2><a href="{{ url('public.frontpages.experience') }}" title="Titre expérience">Titre expérience</a></h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis cum molestiae officia quasi consequatur ad mollitia tempore omnis aliquid eaque fugiat fuga, corrupti voluptatum nulla harum distinctio inventore, accusamus nisi.</p>
+		<a href="{{ url('public.frontpages.experience') }}" class="read-more transition">Lire la suite</a>
+		<div class="ghost"></div>
+	</article>
+	<article>
+		<h2><a href="{{ url('public.frontpages.experience') }}" title="Titre expérience">Titre expérience</a></h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis cum molestiae officia quasi consequatur ad mollitia tempore omnis aliquid eaque fugiat fuga, corrupti voluptatum nulla harum distinctio inventore, accusamus nisi.</p>
+		<a href="{{ url('public.frontpages.experience') }}" class="read-more transition">Lire la suite</a>
+		<div class="ghost"></div>
+	</article>
+	<article>
+		<h2><a href="{{ url('public.frontpages.experience') }}" title="Titre expérience">Titre expérience</a></h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis cum molestiae officia quasi consequatur ad mollitia tempore omnis aliquid eaque fugiat fuga, corrupti voluptatum nulla harum distinctio inventore, accusamus nisi.</p>
+		<a href="{{ url('public.frontpages.experience') }}" class="read-more transition">Lire la suite</a>
+		<div class="ghost"></div>
+	</article>
+	<article>
+		<h2><a href="{{ url('public.frontpages.experience') }}" title="Titre expérience">Titre expérience</a></h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis cum molestiae officia quasi consequatur ad mollitia tempore omnis aliquid eaque fugiat fuga, corrupti voluptatum nulla harum distinctio inventore, accusamus nisi.</p>
+		<a href="{{ url('public.frontpages.experience') }}" class="read-more transition">Lire la suite</a>
+		<div class="ghost"></div>
+	</article>
+
+	<nav class="pagination blue-light">
+		<a href="#" title="Page précédente">&lt;</a>
+		<ul>
+			<li><a href="#" title="Page n°1" class="active">1</a></li>
+			<li><a href="#" title="Page n°2">2</a></li>
+			<li><a href="#" title="Page n°3">3</a></li>
+			<li><a href="#" title="Page n°4">4</a></li>
+			<li><a href="#" title="Page n°5">5</a></li>
+		</ul>
+		<a href="#" title="Page suivante">&gt;</a>
+	</nav>
+
+</section> <!-- .global-content -->
+{% endblock %}
+
+{# javascripts #}
+{% block javascripts %}
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+	<script src="{{ asset('bundles/public/js/map.js') }}"></script>
+{% endblock %}

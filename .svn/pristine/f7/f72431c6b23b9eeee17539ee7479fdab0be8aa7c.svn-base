@@ -1,0 +1,29 @@
+{% extends "PublicBundle::base.html.twig" %}
+
+{# Description #}
+{% block description %} Go Mobility, un super site {% endblock %}
+
+{# title #}
+{% block title %} Accueil {% endblock %}
+
+
+
+{# body #}
+{% block body %} 
+<div class="global-content two-third left">
+	
+	<section id="last-exp">
+		<h2>Le projet</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis cum molestiae officia quasi consequatur ad mollitia tempore omnis aliquid eaque fugiat fuga, corrupti voluptatum nulla harum distinctio inventore, accusamus nisi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam suscipit tenetur cupiditate quae magni optio saepe, placeat consequuntur reprehenderit laudantium quos eos ab commodi atque architecto omnis exercitationem accusamus eveniet.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At reprehenderit porro consequatur, harum saepe Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolores eveniet, dicta repudiandae, ad praesentium eligendi quae illo nobis est autem facilis obcaecati molestias sed natus id aperiam repellendus ipsum. exercitationem repellendus illum officia temporibus facilis recusandae cumque blanditiis. Facere odio voluptates vero, alias dolorem earum? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum autem doloribus repudiandae reiciendis laboriosam, quidem dolorem. Cupiditate distinctio, obcaecati repudiandae cum laboriosam esse! Eveniet repellat animi laudantium maxime quo provident.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit dolorem facere eius commodi nesciunt non sint vero minus enim, repellat similique, consectetur ad aut eos asperiores voluptatibus necessitatibus accusantium voluptas.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem tempora ad neque libero repellendus magni recusandae adipisci ullam optio voluptatum consequuntur ipsa, autem beatae eum perspiciatis unde saepe doloremque quisquam.</p>
+	</section>
+
+</div> <!-- .global-content -->
+{% endblock %}
+
+{# javascripts #}
+{% block javascripts %}
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+	<script src="{{ asset('bundles/public/js/map.js') }}"></script>
+{% endblock %}

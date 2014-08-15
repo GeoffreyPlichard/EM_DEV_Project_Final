@@ -1,0 +1,92 @@
+<?php
+
+namespace Mobility\PublicBundle\Entity\Commentaire;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Commentaire
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Mobility\PublicBundle\Entity\Commentaire\CommentaireRepository")
+ */
+class Commentaire
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", unique=true, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commentaire", type="text", nullable=false)
+     */
+    private $commentaire;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Mobility\PublicBundle\Entity\Coacteur\Coacteur")
+     * @ORM\JoinColumn(name="id_coacteur", referencedColumnName="id")
+     */
+    private $coacteur;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set commentaire
+     *
+     * @param string $commentaire
+     * @return Commentaire
+     */
+    public function setCommentaire($commentaire)
+    {
+        $this->commentaire = $commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaire
+     *
+     * @return string 
+     */
+    public function getCommentaire()
+    {
+        return $this->commentaire;
+    }
+
+    /**
+     * Set coacteur
+     *
+     * @param \Mobility\PublicBundle\Entity\Coacteur\Coacteur $coacteur
+     * @return Commentaire
+     */
+    public function setCoacteur(\Mobility\PublicBundle\Entity\Coacteur\Coacteur $coacteur = null)
+    {
+        $this->coacteur = $coacteur;
+
+        return $this;
+    }
+
+    /**
+     * Get coacteur
+     *
+     * @return \Mobility\PublicBundle\Entity\Coacteur\Coacteur 
+     */
+    public function getCoacteur()
+    {
+        return $this->coacteur;
+    }
+}

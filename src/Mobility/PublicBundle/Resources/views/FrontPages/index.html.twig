@@ -1,0 +1,33 @@
+{% extends "PublicBundle::base.html.twig" %}
+
+{# Description #}
+{% block description %} Go Mobility, un super site {% endblock %}
+
+{# title #}
+{% block title %} Accueil {% endblock %}
+
+
+
+{# body #}
+{% block body %} 
+<div class="global-content two-third left">
+	
+	<section id="last-exp">
+		<h2><a href="#" class="title-experience transition">{{ entity.title }}</a></h2>
+		<p>{{ entity.description }}</p>
+		<a href="{{ path('public.frontpages.experience', {'id': entity.id}) }}" class="btn read-more transition">Lire la suite</a>
+		<div class="ghost"></div>
+	</section>
+
+	<section id="map" class="content map">
+		
+	</section>
+
+</div> <!-- .global-content -->
+{% endblock %}
+
+{# javascripts #}
+{% block javascripts %}
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+	<script src="{{ asset('bundles/public/js/map.js') }}"></script>
+{% endblock %}

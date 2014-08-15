@@ -1,0 +1,46 @@
+{% extends "PublicBundle::base.html.twig" %}
+
+{# Description #}
+{% block description %} Go Mobility, un super site {% endblock %}
+
+{# title #}
+{% block title %} Accueil {% endblock %}
+
+
+
+{# body #}
+{% block body %} 
+<div class="global-content two-third left">
+	
+	<section>
+		<h2>Contactez-nous</h2>
+		
+		<form action="post">
+			
+			<p>
+				<label for="email">Votre email :</label>
+				<input type="text" name="email" id="email" placeholder="Votre email...">
+			</p>
+
+			<p>
+				<label for="nom">Votre nom :</label>
+				<input type="text" name="nom" id="nom" placeholder="Prénom Nom...">
+			</p>
+
+			<p>
+				<label for="message">Votre message</label>
+				<textarea name="message" id="message" placeholder="Écrivez votre message..."></textarea>
+			</p>
+
+			<input type="submit" value="Envoyer" class="right bg-blue-light white transition">
+			<div class="ghost"></div>
+		</form>
+
+	</section>
+
+</div> <!-- .global-content -->
+{% endblock %}
+
+{# javascripts #}
+{% block javascripts %}
+{% endblock %}

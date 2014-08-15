@@ -1,0 +1,57 @@
+{% extends "PublicBundle::base.html.twig" %}
+
+{# Description #}
+{% block description %} Go Mobility, un super site {% endblock %}
+
+{# title #}
+{% block title %} Accueil {% endblock %}
+
+
+
+{# body #}
+{% block body %} 
+<section class="global-content two-third left">
+	
+	<article class="detail-exp">
+		<h2 class="title-experience transition">{{ entity.title }}</h2>
+		<div data-from="{{ entity.start }}" data-to="{{ entity.arrival }}" id="map" class="two-column left map"></div>
+		<p class="right two-column">{{ entity.description }}</p>
+		<div class="ghost"></div>
+	</article>
+
+	<h3>Commentaires</h3>
+	<ul class="comments">
+		{% for comment in comments %}
+		<li>
+			<h4>{{ comment.email }}</h4>
+			<p>{{ comment.message }}</p>
+		</li>
+		{% endfor %}
+	</ul> <!-- .comments -->
+
+	<h3>Laissez un commentaire</h3>
+	<form method="post" novalidate>
+		<p>
+			{{ form_label(form.email, 'Votre email :') }}
+			{{ form_widget(form.email) }}
+			{{ form_errors(form.email) }}
+		</p>
+
+		<p>
+			{{ form_label(form.message, 'Votre message :') }}
+			{{ form_widget(form.message) }}
+			{{ form_errors(form.message) }}
+		</p>
+		<input type="submit" value="Valider" class="right bg-blue-light white transition">
+		{{ form_widget(form._token) }}
+		<div class="ghost"></div>
+	</form>
+
+</section> <!-- .global-content -->
+{% endblock %}
+
+{# javascripts #}
+{% block javascripts %}
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+	<script src="{{ asset('bundles/public/js/map-route.js') }}"></script>
+{% endblock %}

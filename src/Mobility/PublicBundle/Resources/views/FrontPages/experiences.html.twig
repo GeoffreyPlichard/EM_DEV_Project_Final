@@ -1,0 +1,43 @@
+{% extends "PublicBundle::base.html.twig" %}
+
+{# Description #}
+{% block description %} Go Mobility, un super site {% endblock %}
+
+{# title #}
+{% block title %} Accueil {% endblock %}
+
+
+
+{# body #}
+{% block body %}
+<section id="experiences" class="global-content two-third left">
+	
+	{% for entities in entity %}
+		<article>
+			<h2><a class="title-experience transition" href="{{ url('public.frontpages.experience', {'id' : entities.id}) }}" title="Titre expérience">{{ entities.title }}</a></h2>
+			<p>{{ entities.description }}</p>
+			<a href="{{ url('public.frontpages.experience', {'id' : entities.id}) }}" class="btn read-more transition">Lire la suite</a>
+			<div class="ghost"></div>
+		</article>
+	{% endfor %}
+
+	<nav class="pagination blue-light">
+		<a href="#" title="Page précédente">&lt;</a>
+		<ul>
+			<li><a href="#" title="Page n°1" class="active">1</a></li>
+			<li><a href="#" title="Page n°2">2</a></li>
+			<li><a href="#" title="Page n°3">3</a></li>
+			<li><a href="#" title="Page n°4">4</a></li>
+			<li><a href="#" title="Page n°5">5</a></li>
+		</ul>
+		<a href="#" title="Page suivante">&gt;</a>
+	</nav>
+
+</section> <!-- .global-content -->
+{% endblock %}
+
+{# javascripts #}
+{% block javascripts %}
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+	<script src="{{ asset('bundles/public/js/map.js') }}"></script>
+{% endblock %}

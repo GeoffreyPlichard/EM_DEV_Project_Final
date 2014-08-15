@@ -1,0 +1,22 @@
+<?php
+
+namespace Mobility\PublicBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+// Import des modules
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
+class FrontPagesController extends Controller
+{
+
+	/**
+	* @Route(name="public.frontpages.index")
+	* @Template("PublicBundle:FrontPages:index.html.twig")
+	*/
+
+    public function indexAction()
+    {
+        return array();
+    }
+}

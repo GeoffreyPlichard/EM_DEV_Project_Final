@@ -1,0 +1,3 @@
+public_frontpages:
+    resource: '@PublicBundle/Controller/FrontPagesController.php'
+    type: annotation

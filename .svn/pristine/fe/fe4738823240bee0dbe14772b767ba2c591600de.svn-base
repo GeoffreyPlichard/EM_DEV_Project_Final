@@ -1,0 +1,60 @@
+{% extends "PublicBundle::base.html.twig" %}
+
+{# Description #}
+{% block description %} Go Mobility, un super site {% endblock %}
+
+{# title #}
+{% block title %} Accueil {% endblock %}
+
+
+
+{# body #}
+{% block body %} 
+<section class="global-content two-third left">
+	
+	<article class="detail-exp">
+		<h2>Titre de l'expérience</h2>
+		<div id="map" class="two-column left map"></div>
+		<p class="right two-column">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis cum molestiae officia quasi consequatur ad mollitia tempore omnis aliquid eaque fugiat fuga, corrupti voluptatum nulla harum distinctio inventore, accusamus nisi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit in dolorem, dicta unde earum repellat tenetur, voluptatem adipisci vero beatae quaerat pariatur harum, consequuntur sed tempora officiis similique ducimus porro!</p>
+		<div class="ghost"></div>
+	</article>
+
+	<h3>Commentaires</h3>
+	<ul class="comments">
+		<li>
+			<h4>user@mail.com</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet dolores animi amet, corrupti eius neque tempora minus reiciendis optio non quidem cupiditate quod soluta ipsa assumenda, deserunt blanditiis sed corporis!</p>
+		</li>
+		<li>
+			<h4>user@mail.com</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet dolores animi amet, corrupti eius neque tempora minus reiciendis optio non quidem cupiditate quod soluta ipsa assumenda, deserunt blanditiis sed corporis!</p>
+		</li>
+		<li>
+			<h4>user@mail.com</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet dolores animi amet, corrupti eius neque tempora minus reiciendis optio non quidem cupiditate quod soluta ipsa assumenda, deserunt blanditiis sed corporis!</p>
+		</li>
+	</ul> <!-- .comments -->
+
+	<h3>Laissez un commentaire</h3>
+	<form action="post">
+		<p>
+			<label for="email">Votre email :</label>
+			<input type="text" class="two-column" name="email" id="email" placeholder="Votre adresse email...">
+		</p>
+
+		<p>
+			<label for="commentaire">Votre commentaire :</label>
+			<textarea name="commentaire" id="commentaire" placeholder="Votre commentaire..."></textarea>
+		</p>
+		<input type="submit" value="Valider" class="right bg-blue-light white transition">
+		<div class="ghost"></div>
+	</form>
+
+</section> <!-- .global-content -->
+{% endblock %}
+
+{# javascripts #}
+{% block javascripts %}
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+	<script src="{{ asset('bundles/public/js/map.js') }}"></script>
+{% endblock %}

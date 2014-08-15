@@ -1,0 +1,21 @@
+/*  #Mobile
+================================================== */
+
+	@media only screen and (max-width:959px) {
+
+		/*
+		** CLASSES
+		*/
+
+			body > .content{padding:0 2%;}
+				body > .content .global-content, body > .content > aside.one-third{float:none; width:100%;}
+				body > .content > aside.one-third{margin-top:20px; padding-top:20px; border-top:solid 2px #7dd1eb;}
+				body > .content .global-content{margin-bottom:2%;}
+
+
+		/*
+		** INDEX
+		*/
+
+
+	}

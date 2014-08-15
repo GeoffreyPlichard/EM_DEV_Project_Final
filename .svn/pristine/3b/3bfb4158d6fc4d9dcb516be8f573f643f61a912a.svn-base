@@ -1,0 +1,11 @@
+<?php
+
+namespace Mobility\PublicBundle\Form\Parcours;
+
+class Registration
+{
+  /* @var My\Bundle\Entity\User */
+  public $user;
+  /* @var My\Bundle\Entity\Company */
+  public $company;
+}

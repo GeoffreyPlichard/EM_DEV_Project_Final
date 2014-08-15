@@ -1,0 +1,265 @@
+<?php
+
+namespace Mobility\PublicBundle\Entity\Parcours;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Parcours
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Mobility\PublicBundle\Entity\Parcours\ParcoursRepository")
+ */
+class Parcours
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", unique=true, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_transport", type="integer", unique=true, nullable=false)
+     */
+    private $idTransport;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="coor_depart", type="string", length=255, nullable=false)
+     */
+    private $coorDepart;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="coor_arrivee", type="string", length=255, nullable=false)
+     */
+    private $coorArrivee;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="valid", type="boolean", nullable=false)
+     */
+    private $valid;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Mobility\PublicBundle\Entity\Coacteur\Coacteur", inversedBy="parcours")
+     * @ORM\JoinColumn(name="id_coacteur", referencedColumnName="id")
+     */
+    private $coacteur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Mobility\PublicBundle\Entity\Parcours\Transport", inversedBy="parcours")
+     * @ORM\JoinColumn(name="id_transport", referencedColumnName="id")
+     */
+    private $transport;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idEcoacteur
+     *
+     * @param integer $idEcoacteur
+     * @return Parcours
+     */
+    public function setIdEcoacteur($idEcoacteur)
+    {
+        $this->idEcoacteur = $idEcoacteur;
+
+        return $this;
+    }
+
+    /**
+     * Get idEcoacteur
+     *
+     * @return integer 
+     */
+    public function getIdEcoacteur()
+    {
+        return $this->idEcoacteur;
+    }
+
+    /**
+     * Set coorDepart
+     *
+     * @param string $coorDepart
+     * @return Parcours
+     */
+    public function setCoorDepart($coorDepart)
+    {
+        $this->coorDepart = $coorDepart;
+
+        return $this;
+    }
+
+    /**
+     * Get coorDepart
+     *
+     * @return string 
+     */
+    public function getCoorDepart()
+    {
+        return $this->coorDepart;
+    }
+
+    /**
+     * Set coorArrivee
+     *
+     * @param string $coorArrivee
+     * @return Parcours
+     */
+    public function setCoorArrivee($coorArrivee)
+    {
+        $this->coorArrivee = $coorArrivee;
+
+        return $this;
+    }
+
+    /**
+     * Get coorArrivee
+     *
+     * @return string 
+     */
+    public function getCoorArrivee()
+    {
+        return $this->coorArrivee;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Parcours
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set valid
+     *
+     * @param boolean $valid
+     * @return Parcours
+     */
+    public function setValid($valid)
+    {
+        $this->valid = $valid;
+
+        return $this;
+    }
+
+    /**
+     * Get valid
+     *
+     * @return boolean 
+     */
+    public function getValid()
+    {
+        return $this->valid;
+    }
+
+    /**
+     * Set idTransport
+     *
+     * @param integer $idTransport
+     * @return Parcours
+     */
+    public function setIdTransport($idTransport)
+    {
+        $this->idTransport = $idTransport;
+
+        return $this;
+    }
+
+    /**
+     * Get idTransport
+     *
+     * @return integer 
+     */
+    public function getIdTransport()
+    {
+        return $this->idTransport;
+    }
+
+    /**
+     * Set coacteur
+     *
+     * @param \Mobility\PublicBundle\Entity\Coacteur\Coacteur $coacteur
+     * @return Parcours
+     */
+    public function setCoacteur(\Mobility\PublicBundle\Entity\Coacteur\Coacteur $coacteur = null)
+    {
+        $this->coacteur = $coacteur;
+
+        return $this;
+    }
+
+    /**
+     * Get coacteur
+     *
+     * @return \Mobility\PublicBundle\Entity\Coacteur\Coacteur 
+     */
+    public function getCoacteur()
+    {
+        return $this->coacteur;
+    }
+
+    /**
+     * Set transport
+     *
+     * @param \Mobility\PublicBundle\Entity\Parcours\Transport $transport
+     * @return Parcours
+     */
+    public function setTransport(\Mobility\PublicBundle\Entity\Parcours\Transport $transport = null)
+    {
+        $this->transport = $transport;
+
+        return $this;
+    }
+
+    /**
+     * Get transport
+     *
+     * @return \Mobility\PublicBundle\Entity\Parcours\Transport 
+     */
+    public function getTransport()
+    {
+        return $this->transport;
+    }
+}

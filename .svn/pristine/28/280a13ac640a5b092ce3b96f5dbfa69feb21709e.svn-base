@@ -1,0 +1,16 @@
+<header id="header" class="full-width bg-blue-light">
+	<div class="content">
+		<h1 class="left"><a href="{{ url('public.frontpages.index') }}" title="Go Mobility"><img src="{{ asset('bundles/public/images/global/logo.png') }}" alt="Go Mobility, l'Ardèche éco-responsable"></a></h1>
+
+		<nav id="menu" class="right white">
+			<ul>
+				<li><a href="{{ url('public.frontpages.projet') }}" title="Le projet">Le projet</a></li><!--
+				--><li><a href="{{ url('public.frontpages.experience') }}" title="Vos expériences">Vos expériences</a></li><!--
+				--><li><a href="{{ url('public.frontpages.participe') }}" title="Je participe">Je participe</a></li>
+			</ul>
+		</nav>
+		<div class="ghost"></div>
+	</div> <!-- .content -->
+</header> <!-- #header -->
+
+<div class="content">
