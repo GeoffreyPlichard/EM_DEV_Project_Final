@@ -1,0 +1,7 @@
+parameters:
+#    access.example.class: Mobility\AccessBundle\Example
+
+services:
+#    access.example:
+#        class: %access.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

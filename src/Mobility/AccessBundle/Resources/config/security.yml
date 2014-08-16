@@ -1,0 +1,43 @@
+# CE FICHIER VIENT DE APP/CONFIG
+security:
+    encoders:
+        Mobility\AccessBundle\Entity\User:
+            algorithm: bcrypt
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        # ROLE_SUPER_ADMIN: [ ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH ]
+
+    providers:
+        administrators:
+            entity: { class: AccessBundle:User }
+
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        #admin_area:
+        #    pattern:    ^/
+        #    form_login:
+        #        check_path: security_check
+        #        login_path: login
+        #    logout:
+        #        path: logout
+        #        target: front.homepage.index
+        #    anonymous: ~
+
+        secured_area:
+                # Toutes pages du site seront sécurisées, mais pas d'authentification
+                pattern:    ^/
+                form_login:
+                    check_path: access.user.security_check
+                    login_path: access.user.login
+                logout:
+                    path:   access.user.logout
+                    target: access.user.landing
+                anonymous: ~
+                # http_basic:
+                #    realm: "Veuillez vous authentifier"
+
+    access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN }

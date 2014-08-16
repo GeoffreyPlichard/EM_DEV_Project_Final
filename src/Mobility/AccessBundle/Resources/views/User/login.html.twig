@@ -1,0 +1,29 @@
+{% extends "AccessBundle::base.html.twig" %}
+
+{% block body %}
+	
+	<div class="container">
+
+		{% if error %}
+	        <p class="alert alert-danger" role="alert">Votre email ou votre mot de passe n'est pas valide</p>
+	    {% endif %}
+
+		<form class="form-signin" role="form" action="{{ path("access.user.security_check") }}" method="post">
+	        <h2 class="form-signin-heading">Identifiez-vous</h2>
+	        <p>
+	        	<input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Adresse email"/>
+	        </p>
+	        <p>
+	        	<input class="form-control" type="password" id="password" name="_password" placeholder="Mot de passe" />
+	        </p>
+	        <p>
+	        	<input class="btn btn-lg btn-primary btn-block" type="submit" value="Valider">
+	        </p>
+	        <p><a href="{{ url('access.user.creation') }}">Cliquez ici pour créer un compte.</a></p>
+
+	        
+	    </form>
+
+    </div>
+{% endblock %}
+

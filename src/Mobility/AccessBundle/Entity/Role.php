@@ -1,6 +1,6 @@
 <?php
 
-namespace Formation\AccessBundle\Entity;
+namespace Mobility\AccessBundle\Entity;
 
 use Symfony\Component\Security\Core\Role\RoleInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -98,10 +98,10 @@ class Role implements RoleInterface
     /**
      * Add users
      *
-     * @param \Formation\AccessBundle\Entity\User $users
+     * @param \Mobility\AccessBundle\Entity\User $users
      * @return Role
      */
-    public function addUser(\Formation\AccessBundle\Entity\User $users)
+    public function addUser(\Mobility\AccessBundle\Entity\User $users)
     {
         $this->users[] = $users;
 
@@ -111,9 +111,9 @@ class Role implements RoleInterface
     /**
      * Remove users
      *
-     * @param \Formation\AccessBundle\Entity\User $users
+     * @param \Mobility\AccessBundle\Entity\User $users
      */
-    public function removeUser(\Formation\AccessBundle\Entity\User $users)
+    public function removeUser(\Mobility\AccessBundle\Entity\User $users)
     {
         $this->users->removeElement($users);
     }

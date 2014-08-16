@@ -1,0 +1,37 @@
+{% extends "AccessBundle::base.html.twig" %}
+
+{% block body %}
+	
+	<div class="container">
+
+		<form class="form-signin" role="form" method="post" novalidate>
+			{% for notice in app.session.flashbag.get('notice') %}
+        		<p class="alert alert-success" role="alert">{{ notice }}</p>
+    		{% endfor %}
+	        <h2 class="form-signin-heading">Créer un compte</h2>
+
+	        <p>
+            	{{ form_widget(form.username, {'attr': {'class': 'form-control', 'placeholder': 'Nom d\'utilisateur'}}) }}
+            	{{ form_errors(form.username )}}
+	        </p>
+
+	        <p>
+	            {{ form_widget(form.password, {'attr': {'class': 'form-control', 'placeholder': 'Mot de passe'}}) }}
+	            {{ form_errors(form.password )}}
+	        </p>
+
+	        <p>
+	            {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Adresse email'}}) }}
+	            {{ form_errors(form.email )}}
+	        </p>
+
+	        <p>
+	            <input class="btn btn-lg btn-primary btn-block" type="submit" value="valider">
+	            {{ form_widget(form._token) }}
+	        </p>
+
+	    </form>
+
+    </div>
+{% endblock %}
+

@@ -1,5 +1,6 @@
 imports:
     - { resource: parameters.yml }
+    - { resource: '@AccessBundle/Resources/config/security.yml' }
 
 framework:
     #esi:             ~

@@ -1,6 +1,6 @@
 <?php
 
-namespace Formation\AccessBundle\Entity;
+namespace Mobility\AccessBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Formation\AccessBundle\Entity;
+namespace Mobility\AccessBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 

@@ -1,0 +1,7 @@
+access_homepage:
+    resource: '@AccessBundle/Controller/DefaultController.php'
+    type: annotation
+
+access:
+    resource: '@AccessBundle/Controller/UserController.php'
+    type: annotation
