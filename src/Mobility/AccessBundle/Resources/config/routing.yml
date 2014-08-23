@@ -2,6 +2,10 @@ access_homepage:
     resource: '@AccessBundle/Controller/DefaultController.php'
     type: annotation
 
+access_news:
+    resource: '@AccessBundle/Controller/ActualiteController.php'
+    type: annotation
+
 access:
     resource: '@AccessBundle/Controller/UserController.php'
     type: annotation

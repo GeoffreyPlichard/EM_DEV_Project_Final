@@ -1,14 +1,17 @@
 <?php
 
-namespace Formation\AccessBundle\Entity;
+namespace Mobility\AccessBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 
+// Importation de la classe qui gère les contraintes de validation
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Formation\AccessBundle\Entity\UserRepository")
+ * @ORM\Entity(repositoryClass="Mobility\AccessBundle\Entity\UserRepository")
  */
 class User implements AdvancedUserInterface, \Serializable
 {
@@ -40,16 +43,20 @@ class User implements AdvancedUserInterface, \Serializable
 
     /**
      * @ORM\Column(type="string", length=25, unique=true)
+     * @Assert\NotBlank(message="Veuillez renseigner un pseudo.")
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=64)
+     * @Assert\NotBlank(message="Veuillez renseigner un mot de passe.")
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=60, unique=true)
+     * @Assert\NotBlank(message="Vous devez renseigner votre adresse email.")
+     * @Assert\Email(message="Votre adresse email n'est pas valide.")
      */
     private $email;
 
@@ -145,5 +152,110 @@ class User implements AdvancedUserInterface, \Serializable
     public function isEnabled()
     {
         return $this->isActive;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     * @return User
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     * @return User
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set isActive
+     *
+     * @param boolean $isActive
+     * @return User
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get isActive
+     *
+     * @return boolean 
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * Add roles
+     *
+     * @param \Mobility\AccessBundle\Entity\Role $roles
+     * @return User
+     */
+    public function addRole(\Mobility\AccessBundle\Entity\Role $roles)
+    {
+        $this->roles[] = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Remove roles
+     *
+     * @param \Mobility\AccessBundle\Entity\Role $roles
+     */
+    public function removeRole(\Mobility\AccessBundle\Entity\Role $roles)
+    {
+        $this->roles->removeElement($roles);
     }
 }

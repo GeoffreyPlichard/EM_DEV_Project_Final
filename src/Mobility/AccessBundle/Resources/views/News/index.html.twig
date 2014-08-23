@@ -1,0 +1,26 @@
+{% extends "AccessBundle::admin_layout.html.twig" %}
+
+
+
+{% block body %}
+<div class="col-xs-11 col-md-10 main">
+    <ol class="breadcrumb">
+	  <li><a href="#">Admin</a></li>
+	  <li><a href="#">Actualités</a></li>
+	</ol>
+	<h2>Actualités</h2>
+	{% for notice in app.session.flashbag.get('notice') %}
+        <p class="notice">{{ notice }}</p>
+    {% endfor %}
+	<ul class="list-group">
+	{% for entities in entity %}
+	  	<li class="list-group-item">
+	    	{{ entities.title }}
+	    	<a href="#" class="glyphicon glyphicon-remove pull-right"></a>
+	    	<a href="#" class="glyphicon glyphicon-edit pull-right"></a>
+
+	  	</li>
+	{% endfor %}
+	</ul>
+</div>
+{% endblock %}

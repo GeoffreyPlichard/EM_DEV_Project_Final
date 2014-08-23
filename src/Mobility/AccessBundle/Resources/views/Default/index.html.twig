@@ -1,1 +1,17 @@
-Hello {{ name }}!
+{% extends "AccessBundle::admin_layout.html.twig" %}
+
+
+
+{% block body %}
+<div class="col-xs-11 col-md-10 main">
+    <ol class="breadcrumb">
+	  <li><a href="#">Home</a></li>
+	  <li><a href="#">Dashboard</a></li>
+	</ol>
+	<h3><span class="glyphicon glyphicon-user"></span>Eco-acteurs<span class="badge pull-right">12</span></h3>
+	<h3><span class="glyphicon glyphicon-map-marker"></span>Expériences<span class="badge pull-right">12</span></h3>
+	<h3><span class="glyphicon glyphicon-comment"></span>Commentaires<span class="badge pull-right">12</span></h3>
+	<h3><span class="glyphicon glyphicon-pencil"></span>Messages<span class="badge pull-right">12</span></h3>
+	<h3><span class="glyphicon glyphicon-stats"></span>Meilleur éco-acteur<span class="badge pull-right">12</span></h3>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "AccessBundle::admin_layout.html.twig" %}
+
+
+
+{% block body %}
+<div class="col-xs-11 col-md-10 main">
+    <ol class="breadcrumb">
+	  <li><a href="#">Admin</a></li>
+	  <li><a href="#">Actualités</a></li>
+	  <li><a href="#">Création</a></li>
+	</ol>
+	<h2>Créer une nouvelle actualité</h2>
+
+	
+	
+
+	<form method="post" novalidate>
+		<p>
+			{{ form_label(form.title, 'Titre :') }}
+			{{ form_widget(form.title) }}
+			{{ form_errors(form.title) }}
+		</p>
+
+		<p>
+			{{ form_label(form.content, 'Contenu :') }}
+			{{ form_widget(form.content) }}
+			{{ form_errors(form.content) }}
+		</p>
+
+
+		<input type="submit" value="valider" class="btn">
+        {{ form_widget(form._token) }}
+
+	</form>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+.navbar-nav{
+	float:right;
+}
+
+.sidebar{
+	padding:0;
+}
+.sidebar a{
+	color:#777;
+	font-size: 18px;
+}
+.glyphicon{
+	margin-right: 10px;
+}
+
+.sidebar li:hover a, .sidebar li.active a{
+	background-color: #222;
+	color: #fff;
+}
