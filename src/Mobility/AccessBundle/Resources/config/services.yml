@@ -5,3 +5,16 @@ services:
 #    access.example:
 #        class: %access.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+    mobility_access.menu_builder:
+        class: Mobility\AccessBundle\Menu\MenuBuilder
+        arguments: ["@knp_menu.factory"]
+
+    # votre menu
+    mobility_access.menu.breadcrumb:
+        class: Knp\Menu\MenuItem
+        factory_service: mobility_access.menu_builder # le service du constructeur vu juste au-dessus
+        factory_method: createBreadcrumbMenu # la méthode appelée pour générer le menu
+        arguments: ["@request"]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: breadcrumb } # L'alias est utilisé dans le template

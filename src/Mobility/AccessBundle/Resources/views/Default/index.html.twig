@@ -4,14 +4,13 @@
 
 {% block body %}
 <div class="col-xs-11 col-md-10 main">
-    <ol class="breadcrumb">
-	  <li><a href="#">Home</a></li>
-	  <li><a href="#">Dashboard</a></li>
-	</ol>
+    <div class="breadcrumb">
+	{{ knp_menu_render('breadcrumb',{'currentAsLink':false}) }}
+	</div>
 	<h3><span class="glyphicon glyphicon-user"></span>Eco-acteurs<span class="badge pull-right">12</span></h3>
-	<h3><span class="glyphicon glyphicon-map-marker"></span>Expériences<span class="badge pull-right">12</span></h3>
-	<h3><span class="glyphicon glyphicon-comment"></span>Commentaires<span class="badge pull-right">12</span></h3>
-	<h3><span class="glyphicon glyphicon-pencil"></span>Messages<span class="badge pull-right">12</span></h3>
+	<h3><span class="glyphicon glyphicon-map-marker"></span>Expériences<span class="badge pull-right">{{ eco_total }}</span></h3>
+	<h3><span class="glyphicon glyphicon-comment"></span>Commentaires<span class="badge pull-right">{{ com_total }}</span></h3>
+	<h3><span class="glyphicon glyphicon-pencil"></span>Actualités<span class="badge pull-right">{{ news_total }}</span></h3>
 	<h3><span class="glyphicon glyphicon-stats"></span>Meilleur éco-acteur<span class="badge pull-right">12</span></h3>
 </div>
 {% endblock %}

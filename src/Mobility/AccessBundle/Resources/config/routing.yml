@@ -6,6 +6,14 @@ access_news:
     resource: '@AccessBundle/Controller/ActualiteController.php'
     type: annotation
 
+access_comments:
+    resource: '@AccessBundle/Controller/CommentController.php'
+    type: annotation
+
+access_experiences:
+    resource: '@AccessBundle/Controller/ExperienceController.php'
+    type: annotation
+
 access:
     resource: '@AccessBundle/Controller/UserController.php'
     type: annotation

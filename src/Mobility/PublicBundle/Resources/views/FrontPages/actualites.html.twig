@@ -13,36 +13,13 @@
 <section id="actualites" class="global-content two-third left">
 	
 	<h2>Actualités</h2>
-
+	{% for entities in entity %}
 	<article>
-		<h3>Titre de l'actu</h3>
-		<p class="date grey">le 20/08/1992</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis cum molestiae officia quasi consequatur ad mollitia tempore omnis aliquid eaque fugiat fuga, corrupti voluptatum nulla harum distinctio inventore, accusamus nisi.</p>
+		<h3>{{ entities.title }}</h3>
+		<p class="date grey">le {{ entities.date | date("d/m/Y") }}</p>
+		<p>{{ entities.content }}</p>
 	</article>
-
-	<article>
-		<h3>Titre de l'actu</h3>
-		<p class="date grey">le 20/08/1992</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis cum molestiae officia quasi consequatur ad mollitia tempore omnis aliquid eaque fugiat fuga, corrupti voluptatum nulla harum distinctio inventore, accusamus nisi.</p>
-	</article>
-
-	<article>
-		<h3>Titre de l'actu</h3>
-		<p class="date grey">le 20/08/1992</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis cum molestiae officia quasi consequatur ad mollitia tempore omnis aliquid eaque fugiat fuga, corrupti voluptatum nulla harum distinctio inventore, accusamus nisi.</p>
-	</article>
-
-	<article>
-		<h3>Titre de l'actu</h3>
-		<p class="date grey">le 20/08/1992</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis cum molestiae officia quasi consequatur ad mollitia tempore omnis aliquid eaque fugiat fuga, corrupti voluptatum nulla harum distinctio inventore, accusamus nisi.</p>
-	</article>
-
-	<article>
-		<h3>Titre de l'actu</h3>
-		<p class="date grey">le 20/08/1992</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis cum molestiae officia quasi consequatur ad mollitia tempore omnis aliquid eaque fugiat fuga, corrupti voluptatum nulla harum distinctio inventore, accusamus nisi.</p>
-	</article>
+	{% endfor %}
 
 </section> <!-- .global-content -->
 {% endblock %}

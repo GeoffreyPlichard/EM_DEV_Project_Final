@@ -45,7 +45,7 @@ class ActualiteController extends Controller
     }
 
     /**
-     * @Route("/actualites/creation", name="access.post.index")
+     * @Route("/actualites/creation", name="access.news.post")
      * @Template("AccessBundle:News:post.html.twig")
      */
 
@@ -77,7 +77,7 @@ class ActualiteController extends Controller
             $em->flush();
 
             # getFlashBab() stocke un message en session une seule fois : une fois affiché il est détruit
-            $request->getSession()->getFlashBag()->set('notice', 'Votre actualité a bien été ajoutée.');
+            $request->getSession()->getFlashBag()->set('notice', 'L\'article a bien été ajoutée.');
 
             # Créé une URL
             $url = $this->generateUrl('access.news.index');
@@ -90,6 +90,72 @@ class ActualiteController extends Controller
 		return array(
 			'form' => $form->createView()
 		);
+
+    }
+
+    /**
+     * @Route("/actualites/suppression/{id}", name="access.news.delete")
+     */
+
+    public function deleteAction($id , Request $request){
+
+        $doctrine = $this->getDoctrine();
+        $news = $doctrine
+            ->getRepository('Mobility\AccessBundle\Entity\News')
+            ->find($id);
+
+        $em = $doctrine->getManager();
+        $em->remove($news);
+        $em->flush();
+
+        # getFlashBab() stocke un message en session une seule fois : une fois affiché il est détruit
+        $request->getSession()->getFlashBag()->set('notice', 'L\'article a bien été supprimé.');
+
+        # Créé une URL
+        $url = $this->generateUrl('access.news.index');
+        # On fait la redirection
+        return $this->redirect($url);
+
+    }
+
+    /**
+     * @Route("/actualites/modifier/{id}", name="access.news.update")
+     * @Template("AccessBundle:News:update.html.twig")
+     */
+
+    public function updateAction($id, Request $request){
+
+        $doctrine = $this->getDoctrine();
+        $em = $doctrine->getManager();
+        $news = $em
+                ->getRepository('Mobility\AccessBundle\Entity\News')
+                ->find($id);
+
+
+        $form = $this->createForm(new NewsType, $news);
+        $form->handleRequest($request);
+        
+        
+        if ($form->isValid())
+        {
+            $data = $form->getData();
+            $em->persist($data);
+            $em->flush();
+
+            # getFlashBab() stocke un message en session une seule fois : une fois affiché il est détruit
+            $request->getSession()->getFlashBag()->set('notice', 'L\'article a bien été modifié.');
+
+            # Créé une URL
+            $url = $this->generateUrl('access.news.index');
+            # On fait la redirection
+            return $this->redirect($url);
+
+           
+        }
+
+        return array(
+            'form' => $form->createView()
+        );
 
     }
 

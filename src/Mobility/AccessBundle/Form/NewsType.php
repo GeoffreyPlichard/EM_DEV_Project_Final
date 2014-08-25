@@ -17,7 +17,6 @@ class NewsType extends AbstractType
         $builder
             ->add('title', 'text')
             ->add('content', 'textarea')
-            ->add('user', 'integer')
         ;
     }
     

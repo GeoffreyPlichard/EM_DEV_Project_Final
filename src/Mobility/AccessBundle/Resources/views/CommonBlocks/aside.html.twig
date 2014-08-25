@@ -1,9 +1,9 @@
 <div class="col-xs-1 col-md-2 sidebar">
     <ul class="nav nav-sidebar">
-        <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span><span class="list-label">Dashboard</span></a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-map-marker"></span><span class="list-label">Expériences</span></a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-comment"></span><span class="list-label">Commentaires</span></a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-pencil"></span><span class="list-label">Messages</span></a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-link"></span><span class="list-label">Site public</span></a></li>
+        <li class="{{ app.request.attributes.get('_route') == 'access.default.index' ? 'active' }}"><a href="{{ url('access.default.index') }}"><span class="glyphicon glyphicon-home"></span><span class="list-label">Dashboard</span></a></li>
+        <li class="{{ app.request.attributes.get('_route') == 'access.experiences.index' ? 'active' }}"><a href="{{ url('access.experiences.index') }}"><span class="glyphicon glyphicon-map-marker"></span><span class="list-label">Expériences</span></a></li>
+        <li class="{{ app.request.attributes.get('_route') == 'access.comments.index' ? 'active' }}"><a href="{{ url('access.comments.index') }}"><span class="glyphicon glyphicon-comment"></span><span class="list-label">Commentaires</span></a></li>
+        <li class="{{ app.request.attributes.get('_route') == 'access.news.index' ? 'active' }}"><a href="{{ url('access.news.index') }}"><span class="glyphicon glyphicon-pencil"></span><span class="list-label">Actualités</span></a></li>
+        <li><a href="{{ url('public.frontpages.index') }}"><span class="glyphicon glyphicon-link"></span><span class="list-label">Site public</span></a></li>
     </ul>
 </div>

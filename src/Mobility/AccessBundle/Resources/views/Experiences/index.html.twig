@@ -4,11 +4,10 @@
 
 {% block body %}
 <div class="col-xs-11 col-md-10 main">
-	<div class="breadcrumb">
+    <div class="breadcrumb">
 	{{ knp_menu_render('breadcrumb',{'currentAsLink':false}) }}
 	</div>
-	<h2>Actualités</h2>
-	<a href="{{ url('access.news.post') }}" class="btn btn-primary">Rédiger un article</a><br><br>
+	<h2>Expériences</h2>
 	{% for notice in app.session.flashbag.get('notice') %}
         <div class="alert alert-success" role="alert">{{ notice }}</div>
     {% endfor %}
@@ -16,8 +15,9 @@
 	{% for entities in entity %}
 	  	<li class="list-group-item">
 	    	{{ entities.title }}
-	    	<a href="{{ url('access.news.delete', {'id' : entities.id}) }}" class="glyphicon glyphicon-remove pull-right"></a>
-	    	<a href="{{ url('access.news.update', {'id' : entities.id}) }}" class="glyphicon glyphicon-edit pull-right"></a>
+	    	<a href="#" class="glyphicon glyphicon-remove pull-right"></a>
+	    	<a href="#" class="glyphicon glyphicon-edit pull-right"></a>
+
 	  	</li>
 	{% endfor %}
 	</ul>

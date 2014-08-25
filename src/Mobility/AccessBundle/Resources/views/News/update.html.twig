@@ -1,7 +1,4 @@
 {% extends "AccessBundle::admin_layout.html.twig" %}
-
-
-
 {% block body %}
 <div class="col-xs-11 col-md-10 main">
 	<div class="breadcrumb">
@@ -11,20 +8,17 @@
 	<form method="post" novalidate>
 		<p>
 			{{ form_label(form.title, 'Titre :') }}
-			{{ form_widget(form.title, {'attr': {'class': 'form-control', 'placeholder': 'Titre de l\'article'}}) }}
+			{{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
 			{{ form_errors(form.title) }}
 		</p>
 
 		<p>
 			{{ form_label(form.content, 'Contenu :') }}
-			{{ form_widget(form.content, {'attr': {'class': 'form-control', 'placeholder': 'Contenu de l\'article'}}) }}
+			{{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
 			{{ form_errors(form.content) }}
 		</p>
-
-
 		<input type="submit" value="valider" class="btn">
         {{ form_widget(form._token) }}
-
 	</form>
 </div>
 {% endblock %}

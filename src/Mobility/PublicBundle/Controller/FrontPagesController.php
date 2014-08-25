@@ -50,7 +50,16 @@ class FrontPagesController extends Controller
 
     public function actualitesAction()
     {
-        return array();
+        $doctrine = $this->getDoctrine();
+    	$entity = $doctrine
+    		->getRepository('Mobility\AccessBundle\Entity\News')
+    		->findAll();
+
+        // echo '<pre>'; Debug::dump($entities); echo '</pre>'; exit();
+
+        return array(
+        	'entity' => $entity
+        );
     }
 
 
