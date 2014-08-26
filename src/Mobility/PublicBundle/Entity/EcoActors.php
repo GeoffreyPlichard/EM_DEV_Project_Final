@@ -24,14 +24,6 @@ class EcoActors
      */
     private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255)
-     * @Assert\NotBlank(message="Vous devez renseigner votre adresse email.")
-     * @Assert\Email(message="Votre email n'est pas valide.")
-     */
-    private $email;
 
     /**
      * @var string
@@ -86,15 +78,13 @@ class EcoActors
      */
     private $game;
 
+
+
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="ges", type="integer")
+     * @ORM\ManyToOne(targetEntity="Mobility\PublicBundle\Entity\UserActor", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $ges;
-
-
-
+    private $useractor;
  
 
     
@@ -109,28 +99,6 @@ class EcoActors
         return $this->id;
     }
 
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return EcoActors
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
 
     /**
      * Set title
@@ -270,26 +238,39 @@ class EcoActors
         return $this->game;
     }
 
+
     /**
-     * Set ges
+     * Set useractor
      *
-     * @param integer $ges
+     * @param \Mobility\PublicBundle\Entity\UserActor $useractor
      * @return EcoActors
      */
-    public function setGes($ges)
+    public function setUseractor(\Mobility\PublicBundle\Entity\UserActor $useractor)
     {
-        $this->ges = $ges;
+        $this->useractor = $useractor;
 
         return $this;
     }
 
     /**
-     * Get ges
+     * Get useractor
      *
-     * @return integer 
+     * @return \Mobility\PublicBundle\Entity\UserActor 
      */
-    public function getGes()
+    public function getUseractor()
     {
-        return $this->ges;
+        return $this->useractor;
     }
+
+    /**
+     * Delete useractor
+     *
+     * @return \Mobility\PublicBundle\Entity\UserActor 
+     */
+    public function deleteUseractor()
+    {
+        unset($this->useractor);
+    }
+
+
 }

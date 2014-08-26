@@ -3,15 +3,15 @@
 namespace Mobility\PublicBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-// Import des modules
+# Import des modules
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Configuration;
 
-// On importe la classe Request pour afficher un formulaire
+# On importe la classe Request pour afficher un formulaire
 use Symfony\Component\HttpFoundation\Request as Request;
 
-// Pour afficher un formulaire, importer les types
+# Pour afficher un formulaire, importer les types
 use Mobility\PublicBundle\Entity\EcoActors;
 use Mobility\PublicBundle\Form\EcoActorsType;
 use Mobility\PublicBundle\Entity\Comments;
@@ -35,7 +35,7 @@ class FrontPagesController extends Controller
     		->getRepository('Mobility\PublicBundle\Entity\EcoActors')
     		->find(1);
 
-        // echo '<pre>'; Debug::dump($entities); echo '</pre>'; exit();
+        # echo '<pre>'; Debug::dump($entities); echo '</pre>'; exit();
 
         return array(
         	'entity' => $entity
@@ -55,7 +55,7 @@ class FrontPagesController extends Controller
     		->getRepository('Mobility\AccessBundle\Entity\News')
     		->findAll();
 
-        // echo '<pre>'; Debug::dump($entities); echo '</pre>'; exit();
+        # echo '<pre>'; Debug::dump($entities); echo '</pre>'; exit();
 
         return array(
         	'entity' => $entity
@@ -86,7 +86,7 @@ class FrontPagesController extends Controller
     		->getRepository('Mobility\PublicBundle\Entity\EcoActors')
     		->findAll();
 
-        // echo '<pre>'; Debug::dump($entities); echo '</pre>'; exit();
+        # echo '<pre>'; Debug::dump($entities); echo '</pre>'; exit();
 
         return array(
         	'entity' => $entity
@@ -118,7 +118,7 @@ class FrontPagesController extends Controller
 		$form = $this->createForm(new CommentsType, $comment);
 		$form->handleRequest($request);
 
-        // echo '<pre>'; Debug::dump($entities); echo '</pre>'; exit();
+        # echo '<pre>'; Debug::dump($entities); echo '</pre>'; exit();
 
         if ($form->isValid())
         {
@@ -160,22 +160,40 @@ class FrontPagesController extends Controller
 	{
 
 		$type = new EcoActorsType();
-
 		$form = $this->createForm($type);
 		$form->handleRequest($request);
-		// echo '<pre>'; Debug::dump($form); echo '</pre>'; exit();
-
 
 		if ($form->isValid())
         {
             $data = $form->getData();
-
             $doctrine = $this->getDoctrine();
 			$em = $doctrine->getManager();
 
-			$em->persist($data);
-            $em->flush();
+			# Récupération de l'utilisateur qui correspond à l'adresse email
+			$email = $data->getUserActor();
+			$email = $email->getEmail();
+			$actor = $em
+				->getRepository('Mobility\PublicBundle\Entity\UserActor')
+				->findOneBy(array(
+    				'email' => $email
+    			));
 
+
+			# Si il n y a pas d'utilisateur avec cette email, on l'ajoute, sinon on "set" l'entité avec
+		    # l'utilisateur qui existe déjà.
+			if ($actor == null)
+		    {
+		        $em->persist($data);
+            	$em->flush();
+		    }
+		    else
+		    {
+		    	# $data->deleteUseractor();
+		    	$data->setUseractor($actor);
+		        $em->persist($data);
+            	$em->flush();
+		    }
+			
             # getFlashBab() stocke un message en session une seule fois : une fois affiché il est détruit
             $request->getSession()->getFlashBag()->set('notice', 'Votre parcours a bien été ajouté. Merci de votre participation !');
 

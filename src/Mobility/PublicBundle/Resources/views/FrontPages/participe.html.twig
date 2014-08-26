@@ -20,10 +20,10 @@
 	
 
 	<form method="post" novalidate>
-		<p>
-			{{ form_label(form.email, 'Votre email :') }}
-			{{ form_widget(form.email) }}
-			{{ form_errors(form.email) }}
+	<p>
+			{{ form_label(form.useractor.email, 'Votre email :') }}
+			{{ form_widget(form.useractor.email) }}
+			{{ form_errors(form.useractor.email) }}
 		</p>
 
 		<p>
@@ -60,7 +60,7 @@
 			{{ form_widget(form.description) }}
 			{{ form_errors(form.description) }}
 		</p>
-		{{ form_widget(form.ges) }}
+		{{ form_widget(form.useractor.ges) }}
 		<p>
 			{{ form_widget(form.game) }}
 			{{ form_label(form.game, 'Je souhaite participer au jeu concours.') }}
