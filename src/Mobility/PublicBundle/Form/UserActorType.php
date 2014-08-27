@@ -16,7 +16,7 @@ class UserActorType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('ges')
+            ->add('game', 'checkbox')
         ;
     }
     

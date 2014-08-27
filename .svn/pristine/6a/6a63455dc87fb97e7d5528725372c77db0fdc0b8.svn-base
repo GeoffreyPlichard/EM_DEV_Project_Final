@@ -1,4 +1,0 @@
-public:
-    resource: "@PublicBundle/Resources/config/routing.yml"
-    prefix:   /
-

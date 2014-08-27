@@ -71,12 +71,14 @@ class EcoActors
      */
     private $description;
 
+
+
     /**
-     * @var boolean
+     * @var float
      *
-     * @ORM\Column(name="game", type="boolean")
+     * @ORM\Column(name="ges", type="float")
      */
-    private $game;
+    private $ges;
 
 
 
@@ -215,29 +217,6 @@ class EcoActors
         return $this->description;
     }
 
-    /**
-     * Set game
-     *
-     * @param boolean $game
-     * @return EcoActors
-     */
-    public function setGame($game)
-    {
-        $this->game = $game;
-
-        return $this;
-    }
-
-    /**
-     * Get game
-     *
-     * @return boolean 
-     */
-    public function getGame()
-    {
-        return $this->game;
-    }
-
 
     /**
      * Set useractor
@@ -273,4 +252,27 @@ class EcoActors
     }
 
 
+
+    /**
+     * Set ges
+     *
+     * @param float $ges
+     * @return EcoActors
+     */
+    public function setGes($ges)
+    {
+        $this->ges = $ges;
+
+        return $this;
+    }
+
+    /**
+     * Get ges
+     *
+     * @return float 
+     */
+    public function getGes()
+    {
+        return $this->ges;
+    }
 }

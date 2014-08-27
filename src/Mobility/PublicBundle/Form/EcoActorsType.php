@@ -19,7 +19,10 @@ class EcoActorsType extends AbstractType
             ->add('title', 'text')
             ->add('type', 'choice', array(
             	'choices' => array(
-            		'0' => 'à pied'
+            		'0' => 'à pied',
+                    '1' => 'en voiture',
+                    '2' => 'à vélo',
+                    '3' => 'en transports en commun'
             		),
             	'required'    => true,
     			'empty_value' => 'Choisissez un type de transport',
@@ -28,7 +31,7 @@ class EcoActorsType extends AbstractType
             ->add('start', 'text')
             ->add('arrival', 'text')
             ->add('description', 'textarea')
-            ->add('game', 'checkbox')
+            ->add('ges', 'hidden')
             ->add('useractor', new UserActorType())
         ;
     }

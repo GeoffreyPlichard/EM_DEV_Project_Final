@@ -29,11 +29,18 @@ class UserActor
     private $email;
 
     /**
-     * @var integer
+     * @var float
      *
-     * @ORM\Column(name="ges", type="integer")
+     * @ORM\Column(name="gestotal", type="float")
      */
-    private $ges;
+    private $gestotal;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="game", type="boolean")
+     */
+    private $game;
 
 
     /**
@@ -70,25 +77,48 @@ class UserActor
     }
 
     /**
-     * Set ges
+     * Set gestotal
      *
-     * @param integer $ges
+     * @param integer $gestotal
      * @return UserActor
      */
-    public function setGes($ges)
+    public function setGestotal($gestotal)
     {
-        $this->ges = $ges;
+        $this->gestotal = $gestotal;
 
         return $this;
     }
 
     /**
-     * Get ges
+     * Get gestotal
      *
      * @return integer 
      */
-    public function getGes()
+    public function getGestotal()
     {
-        return $this->ges;
+        return $this->gestotal;
+    }
+
+    /**
+     * Set game
+     *
+     * @param boolean $game
+     * @return UserActor
+     */
+    public function setGame($game)
+    {
+        $this->game = $game;
+
+        return $this;
+    }
+
+    /**
+     * Get game
+     *
+     * @return boolean 
+     */
+    public function getGame()
+    {
+        return $this->game;
     }
 }

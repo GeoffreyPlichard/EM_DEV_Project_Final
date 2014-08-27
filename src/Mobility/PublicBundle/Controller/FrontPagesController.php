@@ -183,12 +183,17 @@ class FrontPagesController extends Controller
 		    # l'utilisateur qui existe déjà.
 			if ($actor == null)
 		    {
+		    	$data->getUseractor()->setGestotal($data->getGes()); # Remplissage du Gesttotal avec le ges de l'expérience
 		        $em->persist($data);
             	$em->flush();
 		    }
 		    else
 		    {
-		    	# $data->deleteUseractor();
+		    	$currentGes = $actor->getGesTotal();
+		    	$experienceGes = $data->getGes();
+		    	$newGes = $currentGes + $experienceGes;
+		    	$actor->setGestotal($newGes); // Mise à jour du GES total
+		    	$actor->setGame($data->getUseractor()->getGame()); // Mise à jour du boolean jeu
 		    	$data->setUseractor($actor);
 		        $em->persist($data);
             	$em->flush();

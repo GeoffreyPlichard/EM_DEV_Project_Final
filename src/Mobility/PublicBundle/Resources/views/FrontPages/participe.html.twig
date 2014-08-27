@@ -19,7 +19,7 @@
     {% endfor %}
 	
 
-	<form method="post" novalidate>
+	<form id="participate-form" method="post" novalidate>
 	<p>
 			{{ form_label(form.useractor.email, 'Votre email :') }}
 			{{ form_widget(form.useractor.email) }}
@@ -39,13 +39,13 @@
 
 		<div class="two-column left">
 		    {{ form_label(form.start, 'Adresse de départ :') }}
-			{{ form_widget(form.start) }}
+			{{ form_widget(form.start, {'attr': {'class': 'from-input'}}) }}
 			{{ form_errors(form.start) }}
 		</div>
 
 		<div class="two-column right">
 		    {{ form_label(form.arrival, 'Adresse d\'arrivée :') }}
-			{{ form_widget(form.arrival) }}
+			{{ form_widget(form.arrival, {'attr': {'class': 'to-input'}}) }}
 			{{ form_errors(form.arrival) }}
 		</div>
 			
@@ -60,10 +60,10 @@
 			{{ form_widget(form.description) }}
 			{{ form_errors(form.description) }}
 		</p>
-		{{ form_widget(form.useractor.ges) }}
+		{{ form_widget(form.ges, {'attr': {'class': 'ges-input'}}) }}
 		<p>
-			{{ form_widget(form.game) }}
-			{{ form_label(form.game, 'Je souhaite participer au jeu concours.') }}
+			{{ form_widget(form.useractor.game) }}
+			{{ form_label(form.useractor.game, 'Je souhaite participer au jeu concours.') }}
 		</p>
 
 		<input type="submit" value="valider" class="right bg-blue-light white transition">
@@ -79,5 +79,5 @@
 {# javascripts #}
 {% block javascripts %}
 	<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
-	<script src="{{ asset('bundles/public/js/map.js') }}"></script>
+	<script src="{{ asset('bundles/public/js/localisation.js') }}"></script>
 {% endblock %}
